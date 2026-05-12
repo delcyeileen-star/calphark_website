@@ -175,33 +175,7 @@ export function FeaturesSection() {
           <Logo3D />
         </div>
 
-        {/* Header - Full width with diagonal layout */}
-        <div className="relative mb-24 lg:mb-32">
-          <div className="grid lg:grid-cols-12 gap-8 items-end">
-            <div className="lg:col-span-7">
-              <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
-                <span className="w-12 h-px bg-gradient-to-r from-[#1E5BA8] to-[#FF1E8E]" />
-                Calphark Services
-              </span>
-              <h2
-                className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
-              >
-                Enterprise
-                <br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1E5BA8] via-[#7B3FF2] to-[#FF1E8E]">AI Solutions.</span>
-              </h2>
-            </div>
-            <div className="lg:col-span-5 lg:pb-4">
-              <p className={`text-xl text-muted-foreground leading-relaxed transition-all duration-1000 delay-200 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              }`}>
-                Comprehensive AI-driven solutions designed to enhance capability, creativity, and measurable performance across emerging markets.
-              </p>
-            </div>
-          </div>
-        </div>
+
 
         {/* Bento Grid Layout - 6 Services */}
         <div className="grid lg:grid-cols-3 gap-4 lg:gap-6">
