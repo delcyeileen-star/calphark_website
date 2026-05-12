@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Shield, Lock, Eye, FileCheck } from "lucide-react";
+import { Interactive3DElement } from "@/components/ai-animations/interactive-3d-element";
 
 const securityFeatures = [
   {
@@ -66,7 +67,7 @@ export function SecuritySection() {
           <span className={`inline-flex items-center gap-4 text-sm font-mono text-muted-foreground mb-8 transition-all duration-700 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}>
-            <span className="w-12 h-px bg-foreground/20" />
+            <span className="w-12 h-px bg-gradient-to-r from-[#1E5BA8] to-[#FF1E8E]" />
             Security
           </span>
           
@@ -74,7 +75,7 @@ export function SecuritySection() {
           <h2 className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] mb-12 transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}>
-            Autonomous,
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1E5BA8] to-[#7B3FF2]">Autonomous,</span>
             <br />
             <span className="text-muted-foreground">not uncontrolled.</span>
           </h2>
@@ -92,9 +93,20 @@ export function SecuritySection() {
         {/* Main content */}
         <div className="grid lg:grid-cols-12 gap-6">
           {/* Large visual card */}
-          <div className={`lg:col-span-7 relative p-8 lg:p-12 border border-foreground/10 min-h-[400px] overflow-hidden transition-all duration-700 ${
+          <div className={`lg:col-span-7 relative p-8 lg:p-12 border border-[#1E5BA8]/30 min-h-[400px] overflow-hidden transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}>
+            {/* 3D Element background */}
+            <div className="absolute top-8 right-8 opacity-50">
+              <Interactive3DElement
+                type="sphere"
+                primaryColor="#1E5BA8"
+                secondaryColor="#7B3FF2"
+                accentColor="#FF1E8E"
+                size={150}
+              />
+            </div>
+            
             {/* Dynamic feature image with cross-fade — desktop only */}
             <div className="absolute inset-0 pointer-events-none items-center justify-end hidden lg:flex">
               {securityFeatures.map((feature, index) => (
@@ -109,9 +121,9 @@ export function SecuritySection() {
             </div>
             
             <div className="relative z-10">
-              <span className="font-mono text-sm text-muted-foreground">Active protection</span>
+              <span className="font-mono text-sm text-[#1E5BA8]">Active protection</span>
               <div className="mt-8">
-                <span className="text-7xl lg:text-8xl font-display">0</span>
+                <span className="text-7xl lg:text-8xl font-display bg-clip-text text-transparent bg-gradient-to-r from-[#1E5BA8] to-[#FF1E8E]">0</span>
                 <span className="block text-muted-foreground mt-2">Security incidents this year</span>
               </div>
             </div>

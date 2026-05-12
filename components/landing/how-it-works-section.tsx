@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AIDataProcessor } from "@/components/ai-animations/ai-data-processor";
+import { Interactive3DElement } from "@/components/ai-animations/interactive-3d-element";
 
 const steps = [
   {
@@ -9,6 +10,7 @@ const steps = [
     title: "Assess",
     subtitle: "Your Needs",
     description: "We analyze your enterprise challenges, goals, and existing infrastructure to design the optimal AI solution architecture.",
+    element3d: "neural" as const,
     code: `// Calphark Assessment Framework
 const assessment = {
   challenges: ['process', 'efficiency'],
@@ -22,6 +24,7 @@ const assessment = {
     title: "Design",
     subtitle: "Solution",
     description: "Our team creates a customized implementation roadmap with intelligent systems tailored to your specific business needs.",
+    element3d: "cube" as const,
     code: `// Calphark Solution Design
 const solution = {
   framework: 'AI-Driven',
@@ -35,6 +38,7 @@ const solution = {
     title: "Deploy",
     subtitle: "& Scale",
     description: "We implement, monitor, and continuously optimize your AI systems to deliver measurable ROI and sustained performance growth.",
+    element3d: "sphere" as const,
     code: `// Calphark Deployment
 const deployment = {
   phase: 1,
@@ -121,6 +125,17 @@ export function HowItWorksSection() {
                   : "bg-[#000000] border-white/25 hover:border-white/50"
               }`}
             >
+              {/* 3D Interactive Element */}
+              <div className={`absolute top-4 right-4 transition-opacity duration-500 ${activeStep === index ? "opacity-80" : "opacity-30"}`}>
+                <Interactive3DElement
+                  type={step.element3d}
+                  primaryColor={index === 0 ? "#1E5BA8" : index === 1 ? "#7B3FF2" : "#FF1E8E"}
+                  secondaryColor="#7B3FF2"
+                  accentColor={index === 0 ? "#FF1E8E" : index === 1 ? "#1E5BA8" : "#7B3FF2"}
+                  size={60}
+                />
+              </div>
+              
               {/* Step number with animated line */}
               <div className="flex items-center gap-4 mb-8">
                 <span className={`text-4xl font-display transition-colors duration-300 ${

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { AIIntelligenceFlow } from "@/components/ai-animations/ai-intelligence-flow";
+import { Interactive3DElement } from "@/components/ai-animations/interactive-3d-element";
 
 export function CtaSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -58,10 +59,24 @@ export function CtaSection() {
             <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
               {/* Left content */}
               <div className="flex-1">
-                <h2 className="text-6xl md:text-7xl lg:text-[72px] font-display tracking-tight mb-8 leading-[0.95] bg-clip-text text-transparent bg-gradient-to-r from-[#1E5BA8] via-[#7B3FF2] to-[#FF1E8E]">
-                  Transform Your
+                {/* 3D Element accent */}
+                <div className="absolute top-8 left-8 opacity-40">
+                  <Interactive3DElement
+                    type="neural"
+                    primaryColor="#1E5BA8"
+                    secondaryColor="#7B3FF2"
+                    accentColor="#FF1E8E"
+                    size={100}
+                  />
+                </div>
+                
+                <h2 className="text-6xl md:text-7xl lg:text-[72px] font-display tracking-tight mb-8 leading-[0.95] text-glow-animate">
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1E5BA8] via-[#7B3FF2] to-[#FF1E8E] bg-[length:200%_auto] animate-gradient-x">
+                    Transform Your
+                  </span>
                   <br />
-                  Enterprise Today
+                  <span className="text-white">Enterprise </span>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FF1E8E] to-[#7B3FF2]">Today</span>
                 </h2>
 
                 <p className="text-xl text-foreground/70 mb-12 leading-relaxed max-w-xl">

@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { CorporateDataFlow } from "@/components/ai-animations/corporate-data-flow";
+import { Interactive3DElement } from "@/components/ai-animations/interactive-3d-element";
 
 const metrics = [
   { 
@@ -250,8 +251,8 @@ export function MetricsSection() {
         <div className="grid lg:grid-cols-12 gap-8 mb-20 lg:mb-32">
           <div className="lg:col-span-8 lg:col-start-1">
             <div className="flex items-center gap-4 mb-6">
-              <span className="flex items-center gap-2 px-3 py-1 bg-[#eca8d6]/10 text-[#eca8d6] text-xs font-mono">
-                <span className="w-2 h-2 rounded-full bg-[#eca8d6] animate-pulse" />
+              <span className="flex items-center gap-2 px-3 py-1 bg-[#FF1E8E]/10 text-[#FF1E8E] text-xs font-mono">
+                <span className="w-2 h-2 rounded-full bg-[#FF1E8E] animate-pulse" />
                 LIVE
               </span>
               <span className="text-sm font-mono text-muted-foreground">
@@ -264,8 +265,21 @@ export function MetricsSection() {
             }`}>
               Real-time
               <br />
-              <span className="text-muted-foreground">agent metrics.</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1E5BA8] to-[#7B3FF2]">agent metrics.</span>
             </h2>
+          </div>
+          
+          {/* 3D Element */}
+          <div className={`lg:col-span-4 flex items-center justify-center transition-all duration-1000 delay-200 ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}>
+            <Interactive3DElement
+              type="torus"
+              primaryColor="#1E5BA8"
+              secondaryColor="#7B3FF2"
+              accentColor="#FF1E8E"
+              size={180}
+            />
           </div>
         </div>
 

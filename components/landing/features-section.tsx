@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { AIDataProcessor } from "@/components/ai-animations/ai-data-processor";
 import { Logo3D } from "@/components/3d-logo";
 import { CloudBrandHover } from "@/components/cloud-brand-hover";
+import { Interactive3DElement } from "@/components/ai-animations/interactive-3d-element";
 
 const features = [
   {
@@ -11,36 +12,42 @@ const features = [
     title: "AI-Driven Product Development",
     description: "Utilize intelligent tools and adaptive systems to create innovative products that leverage cutting-edge AI capabilities.",
     stats: { value: "100+", label: "products built" },
+    element3d: "neural" as const,
   },
   {
     number: "02",
     title: "Digital Innovation Frameworks",
     description: "Scalable technology architectures designed for diverse applications, enabling rapid deployment across industries.",
     stats: { value: "50+", label: "framework patterns" },
+    element3d: "cube" as const,
   },
   {
     number: "03",
     title: "Applied Intelligence Systems",
     description: "AI-powered decision support models that enhance decision-making and operational efficiency at enterprise scale.",
     stats: { value: "99.9%", label: "accuracy rate" },
+    element3d: "sphere" as const,
   },
   {
     number: "04",
     title: "Growth & Strategy Enablement",
     description: "Structured execution frameworks designed to support business growth and strategic transformation initiatives.",
     stats: { value: "200%", label: "avg ROI increase" },
+    element3d: "pyramid" as const,
   },
   {
     number: "05",
     title: "Learning & Capability Platforms",
     description: "Modular engagement ecosystems that foster learning, development, and capability advancement within organizations.",
     stats: { value: "10K+", label: "learners trained" },
+    element3d: "dna" as const,
   },
   {
     number: "06",
     title: "Cross-Industry Innovation Labs",
     description: "Experimental interdisciplinary builds exploring innovative solutions across different sectors and use cases.",
     stats: { value: "30+", label: "active projects" },
+    element3d: "torus" as const,
   },
 ];
 
@@ -175,33 +182,7 @@ export function FeaturesSection() {
           <Logo3D />
         </div>
 
-        {/* Header - Full width with diagonal layout */}
-        <div className="relative mb-24 lg:mb-32">
-          <div className="grid lg:grid-cols-12 gap-8 items-end">
-            <div className="lg:col-span-7">
-              <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
-                <span className="w-12 h-px bg-gradient-to-r from-[#1E5BA8] to-[#FF1E8E]" />
-                Calphark Services
-              </span>
-              <h2
-                className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
-              >
-                Enterprise
-                <br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1E5BA8] via-[#7B3FF2] to-[#FF1E8E]">AI Solutions.</span>
-              </h2>
-            </div>
-            <div className="lg:col-span-5 lg:pb-4">
-              <p className={`text-xl text-muted-foreground leading-relaxed transition-all duration-1000 delay-200 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              }`}>
-                Comprehensive AI-driven solutions designed to enhance capability, creativity, and measurable performance across emerging markets.
-              </p>
-            </div>
-          </div>
-        </div>
+
 
         {/* Bento Grid Layout - 6 Services */}
         <div className="grid lg:grid-cols-3 gap-4 lg:gap-6">
@@ -237,6 +218,17 @@ export function FeaturesSection() {
                   background: `linear-gradient(135deg, ${color.border}10 0%, transparent 50%, ${color.glow}10 100%)`
                 }}
               />
+              
+              {/* 3D Interactive Element */}
+              <div className="absolute top-4 right-4 opacity-40 group-hover:opacity-80 transition-opacity duration-500">
+                <Interactive3DElement
+                  type={feature.element3d}
+                  primaryColor={color.border}
+                  secondaryColor={color.glow}
+                  accentColor={idx % 2 === 0 ? "#FF1E8E" : "#1E5BA8"}
+                  size={70}
+                />
+              </div>
               
               {/* Content */}
               <div className="relative z-10">

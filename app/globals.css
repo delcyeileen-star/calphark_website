@@ -432,4 +432,58 @@
     animation: float-up 3s ease-out forwards;
   }
 
+  /* Text special effects */
+  @keyframes gradient-x {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-gradient-x {
+    animation: gradient-x 3s ease infinite;
+  }
+
+  @keyframes wave {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  @keyframes text-glow-pulse {
+    0%, 100% {
+      text-shadow: 0 0 20px rgba(255, 30, 142, 0.3), 0 0 40px rgba(123, 63, 242, 0.2);
+    }
+    50% {
+      text-shadow: 0 0 30px rgba(255, 30, 142, 0.6), 0 0 60px rgba(123, 63, 242, 0.4), 0 0 80px rgba(30, 91, 168, 0.3);
+    }
+  }
+
+  .text-glow-animate {
+    animation: text-glow-pulse 2s ease-in-out infinite;
+  }
+
+  /* Brand color accents for text */
+  .text-brand-blue {
+    color: #1E5BA8;
+  }
+
+  .text-brand-purple {
+    color: #7B3FF2;
+  }
+
+  .text-brand-pink {
+    color: #FF1E8E;
+  }
+
+  /* Gradient border for cards */
+  .border-brand-gradient {
+    border-image: linear-gradient(135deg, #1E5BA8, #7B3FF2, #FF1E8E) 1;
+  }
+
 }
