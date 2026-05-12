@@ -5,6 +5,7 @@ import { DataStream } from "@/components/ai-animations/data-stream";
 import { HolographicGrid } from "@/components/ai-animations/holographic-grid";
 import { Logo3D } from "@/components/3d-logo";
 import { AIIntelligenceFlow } from "@/components/ai-animations/ai-intelligence-flow";
+import { NeuralTreeLights } from "@/components/ai-animations/neural-tree-lights";
 
 const words = ["innovate", "elevate", "orchestrate", "transform"];
 
@@ -146,15 +147,8 @@ export function HeroSection() {
         >
           <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bg-hero-0BnFGdr81Ifnj3WbBZoNt1KE4D5DMT.mp4" type="video/mp4" />
         </video>
-        {/* Neural tree overlay - adds glowing neural network lights to tree branches and leaves */}
-        <div className="absolute inset-0">
-          <img
-            src="/images/neural-tree-overlay.jpg"
-            alt=""
-            aria-hidden="true"
-            className="w-full h-full object-cover object-center opacity-40 mix-blend-screen"
-          />
-        </div>
+        {/* Animated neural tree lights - pulsing nodes and traveling synapses */}
+        <NeuralTreeLights />
         {/* Enhanced gradient overlay with Calphark colors */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/40" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-[#1E5BA8]/5 to-black/90" />
