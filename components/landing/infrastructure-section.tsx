@@ -2,12 +2,13 @@
 
 import { useEffect, useState, useRef } from "react";
 import { CorporateInfrastructure } from "@/components/ai-animations/corporate-infrastructure";
+import { Interactive3DElement } from "@/components/ai-animations/interactive-3d-element";
 
 const regions = [
-  { name: "North America", nodes: 12, status: "operational" },
-  { name: "Europe", nodes: 8, status: "operational" },
-  { name: "Asia Pacific", nodes: 6, status: "operational" },
-  { name: "South America", nodes: 3, status: "operational" },
+  { name: "North America", nodes: 12, status: "operational", element3d: "sphere" as const },
+  { name: "Europe", nodes: 8, status: "operational", element3d: "cube" as const },
+  { name: "Asia Pacific", nodes: 6, status: "operational", element3d: "neural" as const },
+  { name: "South America", nodes: 3, status: "operational", element3d: "pyramid" as const },
 ];
 
 export function InfrastructureSection() {
@@ -175,22 +176,37 @@ export function InfrastructureSection() {
           {regions.map((region, index) => (
             <div
               key={region.name}
-              className={`p-6 border transition-all duration-300 cursor-default ${
+              className={`relative p-6 border transition-all duration-300 cursor-default overflow-hidden ${
                 activeRegion === index 
-                  ? "border-foreground/30 bg-foreground/[0.04]" 
-                  : "border-foreground/10"
+                  ? "border-[#FF1E8E]/50 bg-[#FF1E8E]/5" 
+                  : "border-[#1E5BA8]/30 hover:border-[#7B3FF2]/40"
               }`}
             >
-              <div className="flex items-center gap-2 mb-3">
-                <span className={`w-2 h-2 rounded-full transition-colors ${
-                  activeRegion === index ? "bg-[#eca8d6]" : "bg-foreground/20"
-                }`} />
-                <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
-                  {region.status}
-                </span>
+              {/* 3D Element background */}
+              <div className={`absolute top-2 right-2 transition-opacity duration-300 ${
+                activeRegion === index ? "opacity-60" : "opacity-20"
+              }`}>
+                <Interactive3DElement
+                  type={region.element3d}
+                  primaryColor={activeRegion === index ? "#FF1E8E" : "#1E5BA8"}
+                  secondaryColor="#7B3FF2"
+                  accentColor="#FF1E8E"
+                  size={50}
+                />
               </div>
-              <span className="font-medium block mb-1">{region.name}</span>
-              <span className="text-sm text-muted-foreground">{region.nodes} nodes</span>
+              
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className={`w-2 h-2 rounded-full transition-colors ${
+                    activeRegion === index ? "bg-[#FF1E8E]" : "bg-[#1E5BA8]"
+                  }`} />
+                  <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
+                    {region.status}
+                  </span>
+                </div>
+                <span className="font-medium block mb-1">{region.name}</span>
+                <span className="text-sm text-muted-foreground">{region.nodes} nodes</span>
+              </div>
             </div>
           ))}
         </div>
