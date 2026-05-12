@@ -146,13 +146,13 @@ export function HeroSection() {
         >
           <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bg-hero-0BnFGdr81Ifnj3WbBZoNt1KE4D5DMT.mp4" type="video/mp4" />
         </video>
-        {/* AI-themed overlay image blended with video */}
+        {/* Neural tree overlay - adds glowing neural network lights to tree branches and leaves */}
         <div className="absolute inset-0">
           <img
-            src="/images/ai-hero-background.jpg"
+            src="/images/neural-tree-overlay.jpg"
             alt=""
             aria-hidden="true"
-            className="w-full h-full object-cover object-center opacity-30 mix-blend-screen"
+            className="w-full h-full object-cover object-center opacity-40 mix-blend-screen"
           />
         </div>
         {/* Enhanced gradient overlay with Calphark colors */}
